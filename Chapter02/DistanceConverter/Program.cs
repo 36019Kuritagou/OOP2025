@@ -23,7 +23,7 @@
 
         // メートルからフィートへの対応表を出力
         static void PrintMeterToFeetList(int start, int end) {
-            for (int meter = start; meter <= end; meter++) {
+            for (int meter = start; meter <= end; meter++) { 
                 double feet = FeetConverter.FromMeter(meter);
                 Console.WriteLine($"{meter}m = {feet:0.0000}ft");
             }
