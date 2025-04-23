@@ -2,21 +2,47 @@
     internal class Program {
         static void Main(string[] args) {
 
-         
+            Console.WriteLine("*** 変換アプリ ***");
+            Console.WriteLine("1: インチからメートル");
+            Console.WriteLine("2: メートルからインチ");
+            int a = int.Parse(Console.ReadLine());
 
-            for (int inch = 1; inch <= 10; inch++) {
-                double meter = InchToMeter(inch);
-                Console.WriteLine($"{inch}inch = {meter:0.0000}m");
+
+            if (a == 1) {
+                Console.Write("はじめ：");
+                int start = int.Parse(Console.ReadLine());
+                Console.Write("おわり：");
+                int end = int.Parse(Console.ReadLine());
+                PrintInchToMeterList(start, end);
+
+            } else if (a == 2) {
+                Console.Write("はじめ：");
+                int start = int.Parse(Console.ReadLine());
+                Console.Write("おわり：");
+                int end = int.Parse(Console.ReadLine());
+                PrintMeterToInchList(start, end);
+            } else {
+                Console.WriteLine("エラー");
             }
 
-            for (int meter = 1; meter <= 10; meter++) {
-                double inch = MeterToInch(meter);
-                Console.WriteLine($"{meter}m = {inch:0.0000}inch");
+            static void PrintInchToMeterList(int start, int end) {
+                for (int inch = start; inch <= end; inch++) {
+                    double meter = InchToMeter(inch);
+                    Console.WriteLine($"{inch}inch = {meter:0.0000}m");
+                }
+            }
+
+            static void PrintMeterToInchList(int start, int end) {
+                for (int meter = start; meter <= end; meter++) {
+                    double inch = MeterToInch(meter);
+                    Console.WriteLine($"{meter}m = {inch:0.0000}inch");
+                }
             }
         }
 
 
-public static double InchToMeter(int inch) {
+
+        public static double InchToMeter(int inch) {
             return inch * 0.0254;
         }
 
@@ -28,5 +54,5 @@ public static double InchToMeter(int inch) {
 }
 
 
-    
+
 
