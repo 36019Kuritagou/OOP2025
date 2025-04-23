@@ -3,55 +3,53 @@
         static void Main(string[] args) {
 
             Console.WriteLine("*** 変換アプリ ***");
-            Console.WriteLine("1: インチからメートル");
-            Console.WriteLine("2: メートルからインチ");
+            Console.WriteLine("1: ヤードからメートル");
+            Console.WriteLine("2: メートルからヤード");
             int a = int.Parse(Console.ReadLine());
 
 
             if (a == 1) {
-                Console.Write("はじめ：");
+                Console.Write("変換前(ヤード):");
                 int start = int.Parse(Console.ReadLine());
-                Console.Write("おわり：");
-                int end = int.Parse(Console.ReadLine());
-                PrintInchToMeterList(start, end);
+                Console.Write("変換後(メートル):" + YardToMeter);
+                
 
             } else if (a == 2) {
-                Console.Write("はじめ：");
+                Console.Write("変換前(メートル)");
                 int start = int.Parse(Console.ReadLine());
-                Console.Write("おわり：");
-                int end = int.Parse(Console.ReadLine());
-                PrintMeterToInchList(start, end);
+                Console.Write("変換後(ヤード)");
+                
             } else {
                 Console.WriteLine("エラー");
             }
 
-            static void PrintInchToMeterList(int start, int end) {
-                for (int inch = start; inch <= end; inch++) {
-                    double meter = InchToMeter(inch);
-                    Console.WriteLine($"{inch}inch = {meter:0.0000}m");
-                }
-            }
+            //static void PrintYardToMeterList(int start, int end) {
+            //    for (int yard = start; yard <= end; yard++) {
+            //        double meter = YardToMeter(yard);
+            //        Console.WriteLine($"{yard}yard = {meter:0.0000}m");
+            //    }
+            //}
 
-            static void PrintMeterToInchList(int start, int end) {
-                for (int meter = start; meter <= end; meter++) {
-                    double inch = MeterToInch(meter);
-                    Console.WriteLine($"{meter}m = {inch:0.0000}inch");
-                }
-            }
+            //static void PrintMeterToYardList(int start, int end) {
+            //    for (int meter = start; meter <= end; meter++) {
+            //        double yard = MeterToYard(meter);
+            //        Console.WriteLine($"{meter}m = {yard:0.0000}yard");
+            //    }
+            //}
         }
 
-
-
-        public static double InchToMeter(int inch) {
-            return inch * 0.0254;
+             public static double YardToMeter(double meter) {
+            return meter / 0.9144;
         }
 
-
-        public static double MeterToInch(int meter) {
-            return meter / 0.0254;
+        //フィートからメートルを求める
+        public static double MeterToYard(double yard) {
+            return yard * 0.9144;
         }
     }
 }
+    
+
 
 
 
