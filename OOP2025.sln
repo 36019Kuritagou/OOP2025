@@ -15,6 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "演習問題", "演習問�
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exercize02", "Chapter02\演習問題\Exercize02\Exercize02.csproj", "{017CE9CA-1499-4041-B2D5-B32FD2661742}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "距離換算プログラム", "距離換算プログラム", "{89B49A07-52E1-4B0A-8D7F-D27B356667BF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FormApps", "FormApps", "{991E14E1-1EB8-4C29-8413-B320BA5D43CC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +46,7 @@ Global
 		{2E1EAB21-6AE4-4BF4-8F59-757360ADC4B0} = {71BDC071-3BE7-4868-A23B-FC55BABEFDBD}
 		{612C5A04-8CDF-4083-A9C9-D3124DD1EB8E} = {71BDC071-3BE7-4868-A23B-FC55BABEFDBD}
 		{017CE9CA-1499-4041-B2D5-B32FD2661742} = {612C5A04-8CDF-4083-A9C9-D3124DD1EB8E}
+		{89B49A07-52E1-4B0A-8D7F-D27B356667BF} = {71BDC071-3BE7-4868-A23B-FC55BABEFDBD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {28BCC89A-A3BD-4783-8893-79F4BA29A7C7}

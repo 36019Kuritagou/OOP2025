@@ -23,27 +23,25 @@
                 Console.WriteLine("エラー");
             }
 
-            //static void PrintYardToMeterList(int start, int end) {
-            //    for (int yard = start; yard <= end; yard++) {
-            //        double meter = YardToMeter(yard);
-            //        Console.WriteLine($"{yard}yard = {meter:0.0000}m");
-            //    }
-            //}
+            static void PrintYardToMeterList(int start) {                
+                    double meter = YardToMeter(start);
+                    Console.WriteLine($"{meter:0.0000}m");
+                
+            }
 
-            //static void PrintMeterToYardList(int start, int end) {
-            //    for (int meter = start; meter <= end; meter++) {
-            //        double yard = MeterToYard(meter);
-            //        Console.WriteLine($"{meter}m = {yard:0.0000}yard");
-            //    }
-            //}
+            static void PrintMeterToYardList(int start) {               
+                    double yard = MeterToYard(start);
+                    Console.WriteLine($"{meter}m = {yard:0.0000}yard");
+                
+            }
         }
 
-             public static double YardToMeter(double meter) {
+             public static double YardToMeter(int meter) {
             return meter / 0.9144;
         }
 
-        //フィートからメートルを求める
-        public static double MeterToYard(double yard) {
+        
+        public static double MeterToYard(int yard) {
             return yard * 0.9144;
         }
     }
