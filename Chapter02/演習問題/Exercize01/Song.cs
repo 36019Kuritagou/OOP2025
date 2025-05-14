@@ -7,11 +7,11 @@
     
 
 
-    public Song(string Title, string ArtistName, int Length) {
-            this.Title = Title;
-            this.ArtistName = ArtistName;
-            this.Length = Length;
-        }
+    //public Song(string Title, string ArtistName, int Length) {
+    //        this.Title = Title;
+    //        this.ArtistName = ArtistName;
+    //        this.Length = Length;
+    //    }
 
     }
 }
