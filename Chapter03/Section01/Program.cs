@@ -4,34 +4,26 @@ using System.Reflection.Metadata.Ecma335;
 namespace Section01 {
     internal class Program {
 
-        public delegate bool Judgement(int value);
-
         static void Main(string[] args) {
 
-            //Console.Write("カウントしたい数値:");
-            //int num = int.Parse(Console.ReadLine());
-            var numbers = new[] { 5, 3, 9, 6, 7, 5, 8, 1, 0, 5, 10, 4 };
+            var cities = new List<string> {
+                "Tokyo",
+                "New Delhi",
+                "Bangkok",
+                "London",
+                "Paris",
+                "Berlin",
+                "Canberra",
+                "Hong Kong",
+            };
 
-            Console.WriteLine(Count(numbers, n=> 5 <= n && n < 10));
+            var lowerList = cities.ConvAll(s => s.Length <= 5);
 
-        }
-
-        //メソッドへ渡す処理
-        static bool IsEven(int n) {
-            return n % 2 == 0;
-        }
-
-        static int Count(int[] numbers, Predicate<int> judge) {            
-            var count = 0;
-            foreach (var n in numbers) {
-                //引数で受け取ったメソッドを呼び出す
-                if (judge(n) == true) {
-                    count++;
-                }
+            foreach (var s in names) {
+                Console.WriteLine(s);
             }
-            return count;
-        }
 
+        }
     }
 }
 
