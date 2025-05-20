@@ -1,4 +1,7 @@
 ﻿
+
+using System.Xml.Linq;
+
 namespace Exercize02 {
     internal class Program {
         static void Main(string[] args) {
@@ -25,30 +28,41 @@ namespace Exercize02 {
 
         }
 
-        private static void Exercise2_1(List<string> cities) {
+        private static void Exercise2_1(List<string> names) {
             Console.WriteLine("都市名を入力。空行で終了");
-
-            string name;
             do {
-                name = Console.ReadLine();
-
-                if (!string.IsNullOrEmpty(name)) {
-                    int index = cities.FindIndex(city => city == name);
-                    if (index >= 0) {
-                        Console.WriteLine(index);
-                    } else {
-                        Console.WriteLine(-1);
-                    }
-                }
-
-            } while (!string.IsNullOrEmpty(name));
+                var name = Console.ReadLine();
+                if (string.IsNullOrEmpty(name))
+                    break;
+                int index = names.FindIndex(s => s.Equals(name));
+                Console.WriteLine(index);
+            } while (true);
         }
 
-            
-        
+        //private static void Exercise2_1(List<string> cities) {
+        //    Console.WriteLine("都市名を入力。空行で終了");
+
+        //    string name;
+        //    do {
+        //        name = Console.ReadLine();
+
+        //        if (!string.IsNullOrEmpty(name)) {
+        //            int index = cities.FindIndex(city => city == name);
+        //            if (index >= 0) {
+        //                Console.WriteLine(index);
+        //            } else {
+        //                Console.WriteLine(-1);
+        //            }
+        //        }
+
+        //    } while (!string.IsNullOrEmpty(name));
+        //}
+
+
+
 
         private static void Exercise2_2(object names) {
-
+            
         }
 
         private static void Exercise2_3(object names) {
