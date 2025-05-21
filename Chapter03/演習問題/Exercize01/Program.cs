@@ -38,17 +38,15 @@ namespace Exercize01 {
 
 
         private static void Exercise2(List<int> numbers) {
-            foreach(var n in numbers) {
-                Console.WriteLine(n / 2.0);
-            }
-                }
+            numbers.ForEach(n => Console.WriteLine(n / 2.0));
+        }
 
         private static void Exercise3(List<int> numbers) {
-            
+            numbers.Where(n => n > 50).ToList().ForEach(Console.WriteLine);           
         }
 
         private static void Exercise4(List<int> numbers) {
-            
+            numbers.Select(n => n * 2).ToList().ForEach(Console.WriteLine);
         }
     }
 }
