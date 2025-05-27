@@ -25,7 +25,7 @@ namespace ConsoleApp1 {
         }
 
         private static void Exercise2(int[] numbers) {
-            foreach (var n in numbers) {
+            foreach (var n in numbers.TakeLast(2)) {
                 Console.WriteLine(n);
             }
         }
@@ -37,10 +37,9 @@ namespace ConsoleApp1 {
             }
         }
 
-        private static void Exercise4(int[] numbers) {
-            
-            var results = numbers.Where(n => n > 0).Take(3);
-            foreach (var n in results) {
+        private static void Exercise4(int[] numbers) {       
+            var results = numbers.Where(n => n > 0);
+            foreach (var n in results.Order().Take(3)) {
                 Console.WriteLine(n);
             }
         }
