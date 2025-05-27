@@ -37,7 +37,7 @@ namespace ConsoleApp1 {
             }
         }
 
-        private static void Exercise4(int[] numbers) {       
+        private static void Exercise4(int[] numbers) {
             var results = numbers.Where(n => n > 0);
             foreach (var n in results.Order().Take(3)) {
                 Console.WriteLine(n);
@@ -45,6 +45,10 @@ namespace ConsoleApp1 {
         }
 
         private static void Exercise5(int[] numbers) {
+            var result = numbers.Distinct().Count(n => n > 10);
+            Console.WriteLine(result);
+            
+
 
         }
     }
