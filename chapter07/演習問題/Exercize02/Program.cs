@@ -73,6 +73,7 @@ namespace Exercize02 {
             var dprice = books.Where(b => b.Title.Contains("C#")&& b.Pages <= 500);
             foreach(var dp in dprice) {
                 Console.WriteLine(dp.Title);
+                
             }
         }
     }
