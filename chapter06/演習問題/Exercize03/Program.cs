@@ -1,6 +1,7 @@
 ﻿
 
 using System.Reflection.Metadata;
+using System.Text;
 
 namespace Exercize03 {
     internal class Program {
@@ -35,7 +36,14 @@ namespace Exercize03 {
         }
 
         private static void Exercise3(string text) {
-
+            var array = text.Split(' ');
+            var sb = new StringBuilder(array[0]);
+            foreach (var word in array.Skip(1)) {
+                sb.Append(" ");
+                sb.Append(word);
+            }
+            var str = sb.ToString().TrimEnd();
+            Console.WriteLine(sb + ".");
         }
 
         private static void Exercise4(string text) {
