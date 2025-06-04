@@ -25,8 +25,12 @@ namespace Exercize03 {
             Exercise5(text);
 
             Console.WriteLine("6.3.6");
-            Exercise5(text);
+            Exercise6(text);
         }
+
+        
+
+
         #endregion
 
 
@@ -67,8 +71,8 @@ namespace Exercize03 {
             }           
 
         }
-        private static void Exercize6(string text) {
 
+        private static void Exercise6(string text) {        
             Console.WriteLine("出現アルファベットの個数");
             var str = text.ToLower();
             for (char c = 'a'; c <= 'z'; c++) {
