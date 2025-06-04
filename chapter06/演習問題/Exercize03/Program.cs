@@ -7,6 +7,7 @@ namespace Exercize03 {
     internal class Program {
         static void Main(string[] args) {
             var text = "Jackdaws love my big sphinx of quartz";
+            #region
 
             Console.WriteLine("6.3.1");
             Exercise1(text);
@@ -23,7 +24,15 @@ namespace Exercize03 {
             Console.WriteLine("6.3.5");
             Exercise5(text);
 
+            Console.WriteLine("6.3.6");
+            Exercise5(text);
         }
+        #endregion
+
+
+
+
+
 
         private static void Exercise1(string text) {
             var cou = text.Count(c => c == ' ');
@@ -58,6 +67,14 @@ namespace Exercize03 {
             }           
 
         }
-        
+        private static void Exercize6(string text) {
+
+            Console.WriteLine("出現アルファベットの個数");
+            var str = text.ToLower();
+            for (char c = 'a'; c <= 'z'; c++) {
+                Console.WriteLine(c + ";" + str.Count(ct => ct == c));
+            }
+        }
+
     }
 }
