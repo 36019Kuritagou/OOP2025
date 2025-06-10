@@ -38,22 +38,23 @@ namespace Exercize01 {
 
 
         private static void Exercise4(YearMonth[] ymCollection) {
-            var ym = FindFirst21C(ymCollection);
+            /*var ym = FindFirst21C(ymCollection);
             if(ym is null) {
                 Console.WriteLine("21世紀のデータはありません");
             }else {
                 Console.WriteLine(ym);
-            }
+            }*/
 
             //null合体演算子
-
+            Console.WriteLine(FindFirst21C(ymCollection)?.ToString() ?? "21世紀のデータはありません");
         }
 
         private static void Exercise5(YearMonth[] ymCollection) {
             var array = ymCollection.Select(ym => ym.AddOneMonth()).ToArray();
-            foreach(var ym in array) {
-                Console.WriteLine(ym);
-            }
+            //foreach(var ym in array) {
+            //    Console.WriteLine(ym);
+            //}
+            Exercise2(array);
         }
     }
 }
