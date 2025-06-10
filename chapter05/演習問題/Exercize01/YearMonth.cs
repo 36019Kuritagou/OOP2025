@@ -32,7 +32,8 @@ namespace Exercize01 {
         }
 
         //4.1.4
-        public override string ToString() => base.ToString();            
+        public override string ToString() => $"{Year}年{Month}月";
+
 
 
     }

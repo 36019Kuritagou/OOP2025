@@ -23,15 +23,37 @@ namespace Exercize01 {
         }
 
         private static void Exercise2(YearMonth[] ymCollection) {
-            throw new NotImplementedException();
+            foreach (var ym in ymCollection) {
+                Console.WriteLine(ym);
+            }
         }
 
+        public static YearMonth? FindFirst21C(YearMonth[] ymCollection) {
+            foreach (var ym in ymCollection) {
+                if (ym.Is21Century)
+                    return ym;
+            }
+            return null;
+        }
+
+
         private static void Exercise4(YearMonth[] ymCollection) {
-            throw new NotImplementedException();
+            var ym = FindFirst21C(ymCollection);
+            if(ym is null) {
+                Console.WriteLine("21世紀のデータはありません");
+            }else {
+                Console.WriteLine(ym);
+            }
+
+            //null合体演算子
+
         }
 
         private static void Exercise5(YearMonth[] ymCollection) {
-            throw new NotImplementedException();
+            var array = ymCollection.Select(ym => ym.AddOneMonth()).ToArray();
+            foreach(var ym in array) {
+                Console.WriteLine(ym);
+            }
         }
     }
 }
