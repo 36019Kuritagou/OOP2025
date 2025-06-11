@@ -29,6 +29,21 @@ namespace Exercize01 {
         }
 
         private static void Exercise2(string text) {
+            var count = new SortedDictionary<char, int>();
+            foreach (var c in text.ToUpper()) {
+                if ('A' <= c && c <= 'Z') {
+                    if (count.ContainsKey(c)) {
+                        count[c]++;
+                    } else {
+                        count[c] = 1;
+                    }
+                }
+            }
+            foreach (var a in count) {
+                Console.WriteLine($"{a.Key}:{a.Value}");
+            }
+
+
 
         }
     }
