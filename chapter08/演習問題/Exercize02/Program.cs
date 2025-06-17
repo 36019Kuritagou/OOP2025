@@ -15,15 +15,18 @@
             Console.WriteLine();
 
             //8.2.3 (Removeの呼び出し例)
-            if(abbrs.Remove("NPI")) {
+            if(abbrs.Remove("NPT")) {
                 Console.WriteLine(abbrs.Count);
             }
 
             //既に削除してあるので、falseが返る
-            if(!abbrs.Remove("NPI")) {
+            if(!abbrs.Remove("NPT")) {
                 Console.WriteLine("削除できません");
             }
             Console.WriteLine();
+
+            //8.2.4
+            var query = abbrs.GetAll().Where(x => x.Key.Length == 3);
 
             // Getメソッドの利用例
             var names = new[] { "WHO", "FIFA", "NPT", };
