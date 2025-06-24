@@ -37,9 +37,34 @@ namespace Section01 {
             Console.WriteLine(str);
 
             //③生まれてから〇〇〇〇日目です
-            var now = DateTime.Now;
+            /*var now = DateTime.Now;
             var diff = now.Date - date;
-            Console.WriteLine($"生まれてから{diff.Days}日間");
+            Console.WriteLine($"生まれてから{diff.Days}日間");*/
+            TimeSpan diff;
+            while (true) {
+                diff = DateTime.Now - date;
+                Console.Write($"\r{diff.TotalSeconds}秒");
+            }
+
+            //④あなたは〇〇歳です
+            static int GetAge(DateTime birthday, DateTime targetDay) {
+                var age = targetDay.Year - birthday.Year;
+                if(targetDay < birthday.AddYears(age)) {
+                    age--;
+                }
+                return age;
+            }
+
+            var birthday = new DateTime(y,m,d);
+            var today = DateTime.Today;
+            int age = GetAge(birthday, today);
+            Console.WriteLine($"あなた{age}歳です");
+
+            //⑤1月1日から何日目か
+            int dayOfYear = today.DayOfYear;
+            Console.WriteLine($"1月1日から{dayOfYear}日経ちました");
+
+            
 
             //②うるう年の判定プログラムを作成する
             //西暦を入力
