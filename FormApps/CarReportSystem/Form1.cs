@@ -168,16 +168,26 @@ namespace CarReportSystem {
 
             //設定ファイルを読み込み背景色を設定する（逆シリアル化）
             //P286以降を参考にする（ファイル名：setting.xml）
-            var serializer = new XmlSerializer(typeof(Settings));
             if (File.Exists("settings.xml")) {
-                using (var reader = new StreamReader("settings.xml")) {
-                    settings = (Settings)serializer.Deserialize(reader);
-                    BackColor = Color.FromArgb(settings.MainFormBackColor);
+
+                try {
+                    
+                    using (var reader = new StreamReader("settings.xml")) {
+                        var serializer = new XmlSerializer(typeof(Settings));
+                        var set = serializer.Deserialize(reader) as Settings;
+                        BackColor = Color.FromArgb(settings.MainFormBackColor);
+                    }
                 }
+                catch (Exception ex) {
+                    tsslbMessage.Text = "設定ファイル読み込みエラー";
+                    MessageBox.Show(ex.Message);
+                }
+            }else {
+                tsslbMessage.Text = "設定ファイルがありません";
             }
 
 
-        }
+            }
 
         private void tsmiExit_Click(object sender, EventArgs e) {
             Application.Exit();
@@ -262,11 +272,16 @@ namespace CarReportSystem {
         private void Form1_FormClosed(object sender, FormClosedEventArgs e) {
             //設定ファイルへ色情報を保存する処理（シリアル化）
             //P284以降を参考にする（ファイル名：setting.xml）
-            using (var writer = new StreamWriter("settings.xml")) {
-                var serializer = new XmlSerializer(typeof(Settings));
-                serializer.Serialize(writer, settings);
+            try {
+                using (var writer = new StreamWriter("settings.xml")) {
+                    var serializer = new XmlSerializer(typeof(Settings));
+                    serializer.Serialize(writer, settings);
+                }
             }
-
+            catch (Exception ex) {
+                tsslbMessage.Text = "設定ファイル書き出しエラー";
+                MessageBox.Show(ex.Message);
+            }
 
 
         }
