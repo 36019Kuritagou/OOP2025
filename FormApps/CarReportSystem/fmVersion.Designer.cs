@@ -30,9 +30,9 @@
             // 
             // btOK
             // 
-            btOK.Location = new Point(345, 157);
+            btOK.Location = new Point(267, 173);
             btOK.Name = "btOK";
-            btOK.Size = new Size(75, 23);
+            btOK.Size = new Size(94, 31);
             btOK.TabIndex = 0;
             btOK.Text = "OK";
             btOK.UseVisualStyleBackColor = true;
@@ -41,20 +41,20 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("游ゴシック Medium", 18F, FontStyle.Bold, GraphicsUnit.Point, 128);
-            label1.Location = new Point(19, 21);
+            label1.Font = new Font("UD デジタル 教科書体 NK", 18F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            label1.Location = new Point(26, 35);
             label1.Name = "label1";
-            label1.Size = new Size(313, 31);
+            label1.Size = new Size(272, 28);
             label1.TabIndex = 1;
             label1.Text = "試乗レポート管理システム";
             // 
             // lbVersion
             // 
             lbVersion.AutoSize = true;
-            lbVersion.Font = new Font("Yu Gothic UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 128);
-            lbVersion.Location = new Point(345, 73);
+            lbVersion.Font = new Font("Yu Gothic UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 128);
+            lbVersion.Location = new Point(267, 86);
             lbVersion.Name = "lbVersion";
-            lbVersion.Size = new Size(69, 21);
+            lbVersion.Size = new Size(81, 25);
             lbVersion.TabIndex = 2;
             lbVersion.Text = "Ver.0.0.1";
             // 
@@ -62,11 +62,11 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(438, 192);
+            ClientSize = new Size(387, 231);
             Controls.Add(lbVersion);
             Controls.Add(label1);
             Controls.Add(btOK);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;
             Name = "fmVersion";

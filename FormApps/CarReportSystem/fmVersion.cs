@@ -9,8 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CarReportSystem
-{
+namespace CarReportSystem {
     public partial class fmVersion : Form {
         public fmVersion() {
             InitializeComponent();
@@ -24,7 +23,6 @@ namespace CarReportSystem
             var asm = Assembly.GetExecutingAssembly();
             var version = asm.GetName().Version;
             lbVersion.Text = string.Format($"{version.Major}.{version.Minor}.{version.Build}.{version.Revision}");
-
         }
     }
 }
