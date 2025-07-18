@@ -79,6 +79,7 @@ namespace Exercise01 {
                     Encoder = JavaScriptEncoder.Create(UnicodeRanges.All),
                     WriteIndented = true
                 };
+            
             var text = File.ReadAllText(filePath);
             var employees = JsonSerializer.Deserialize<Employee[]>(text, options);
             return employees ?? [];

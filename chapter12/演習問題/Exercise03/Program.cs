@@ -28,7 +28,7 @@ namespace Exercise03 {
                 XmlRootAttribute xRoot = new XmlRootAttribute {
                     ElementName = "Employees"
                 };
-                var serializer = new XmlSerializer(employees, GetType());
+                var serializer = new XmlSerializer(employees, GetType(),xRoot);
                 serializer.Serialize(writer, employees);
             }
 
