@@ -15,16 +15,15 @@ namespace UnitConverter {
         }
 
         private void btChange_Click(object sender, EventArgs e) {
-            int num1 = int.Parse(tdNum1.Text);
+            int num1 = int.Parse(tbNum1.Text);
             double num2 = num1 * 0.3048;
 
-            tdNum2.Text = num2.ToString();
+            tbNum2.Text = num2.ToString();
         }
 
-        private void btCalk_Click(object sender, EventArgs e) {
-            nudAnser.Value = nudNum1.Value / nudNum2.Value;
+        private void btCalc_Click(object sender, EventArgs e) {
+            nudAnswer.Value = nudNum1.Value / nudNum2.Value;
+            nudAmari.Value = nudNum1.Value % nudNum2.Value;
         }
-
-
     }
 }

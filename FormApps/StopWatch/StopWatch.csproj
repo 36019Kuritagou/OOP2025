@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BE4955AD-650F-4F48-9D12-6D33D4E8A5C0}</ProjectGuid>
+    <ProjectGuid>{60468389-5C2E-4B7F-A69F-DAB7034FA8B1}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>StopWatch</RootNamespace>
     <AssemblyName>StopWatch</AssemblyName>
