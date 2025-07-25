@@ -69,15 +69,15 @@ namespace RssReader {
         }
 
         //ñﬂÇÈ
-        private void btReturn_Click(object sender, EventArgs e) {            
-                wvRssLink.GoBack();
-                           
+        private void btReturn_Click(object sender, EventArgs e) {
+            wvRssLink.GoBack();
+
         }
 
         //êiÇﬁ
-        private void btMove_Click(object sender, EventArgs e) {            
-                wvRssLink.GoForward();
-                            
+        private void btMove_Click(object sender, EventArgs e) {
+            wvRssLink.GoForward();
+
         }
 
         private void wvRssLink_SourceChanged(object sender, Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs e) {
@@ -85,7 +85,7 @@ namespace RssReader {
             btMove.Enabled = wvRssLink.CanGoForward;
         }
 
-        
+
 
         // Ç®ãCÇ…ì¸ÇËìoò^
         private void btRegistration_Click(object sender, EventArgs e) {
@@ -123,6 +123,8 @@ namespace RssReader {
 
         }
 
-        
+        private void Form1_Load(object sender, EventArgs e) {
+            cbUrl.SelectedIndex = -1;
+        }
     }
 }
