@@ -32,6 +32,7 @@
             btRegistration = new Button();
             cbUrl = new ComboBox();
             btDelete = new Button();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)wvRssLink).BeginInit();
             SuspendLayout();
             // 
@@ -94,19 +95,20 @@
             // tbFavorite
             // 
             tbFavorite.Font = new Font("Yu Gothic UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 128);
-            tbFavorite.Location = new Point(12, 65);
+            tbFavorite.Location = new Point(117, 71);
             tbFavorite.Name = "tbFavorite";
             tbFavorite.Size = new Size(457, 35);
             tbFavorite.TabIndex = 6;
             // 
             // btRegistration
             // 
-            btRegistration.Location = new Point(517, 51);
+            btRegistration.Location = new Point(580, 51);
             btRegistration.Name = "btRegistration";
             btRegistration.Size = new Size(113, 66);
             btRegistration.TabIndex = 7;
             btRegistration.Text = "登録";
             btRegistration.UseVisualStyleBackColor = true;
+            btRegistration.Click += btRegistration_Click;
             // 
             // cbUrl
             // 
@@ -118,18 +120,28 @@
             // 
             // btDelete
             // 
-            btDelete.Location = new Point(682, 51);
+            btDelete.Location = new Point(699, 51);
             btDelete.Name = "btDelete";
             btDelete.Size = new Size(112, 66);
             btDelete.TabIndex = 11;
             btDelete.Text = "削除";
             btDelete.UseVisualStyleBackColor = true;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(12, 86);
+            label1.Name = "label1";
+            label1.Size = new Size(82, 15);
+            label1.TabIndex = 12;
+            label1.Text = "お気に入り登録";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(841, 728);
+            Controls.Add(label1);
             Controls.Add(btDelete);
             Controls.Add(cbUrl);
             Controls.Add(btRegistration);
@@ -157,5 +169,6 @@
         private Button btRegistration;
         private ComboBox cbUrl;
         private Button btDelete;
+        private Label label1;
     }
 }

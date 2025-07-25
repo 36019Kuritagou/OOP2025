@@ -1,6 +1,7 @@
 using System.Net;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using System.Security.Policy;
 
 namespace RssReader {
     public partial class Form1 : Form {
@@ -12,6 +13,7 @@ namespace RssReader {
 
             cbUrl.DisplayMember = "Key";
             cbUrl.ValueMember = "Value";
+
 
             cbUrl.Items.Add(new KeyValuePair<string, string>("‘“à", "https://news.yahoo.co.jp/rss/categories/domestic.xml"));
             cbUrl.Items.Add(new KeyValuePair<string, string>("‘Û", "https://news.yahoo.co.jp/rss/categories/world.xml"));
@@ -88,19 +90,41 @@ namespace RssReader {
 
 
         // ‚¨‹C‚É“ü‚è“o˜^
+        //private void btRegistration_Click(object sender, EventArgs e) {
+        //    string url = cbUrl.Text.Trim();
+        //    string name = tbFavorite.Text.Trim();
+        //    if (string.IsNullOrEmpty(url) || string.IsNullOrEmpty(name)) {
+        //        MessageBox.Show("“o˜^‚·‚éURL‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+        //        return;
+        //    }
+
+        //    if (!cbUrl.Items.Contains(url)) {
+        //        cbUrl.Items.Add(url);
+        //        MessageBox.Show("‚¨‹C‚É“ü‚è‚É“o˜^‚µ‚Ü‚µ‚½B");
+        //    } else {
+        //        MessageBox.Show("‚·‚Å‚É“o˜^‚³‚ê‚Ä‚¢‚Ü‚·B");
+        //    }
+        //}
+
         private void btRegistration_Click(object sender, EventArgs e) {
-            string url = tbFavorite.Text.Trim();
-            if (string.IsNullOrEmpty(url)) {
-                MessageBox.Show("“o˜^‚·‚éURL‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
+            string name = tbFavorite.Text.Trim();
+            string url = cbUrl.Text.Trim();
+
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(url)) {
+                MessageBox.Show("–¼Ì‚ÆURL‚Ì—¼•û‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢B");
                 return;
             }
+            bool exists = cbUrl.Items
+                .OfType<KeyValuePair<string, string>>()
+                .Any(kv => kv.Value == url);
 
-            if (!cbUrl.Items.Contains(url)) {
-                cbUrl.Items.Add(url);
-                MessageBox.Show("‚¨‹C‚É“ü‚è‚É“o˜^‚µ‚Ü‚µ‚½B");
-            } else {
-                MessageBox.Show("‚·‚Å‚É“o˜^‚³‚ê‚Ä‚¢‚Ü‚·B");
+            if (exists) {
+                MessageBox.Show("‚±‚ÌURL‚Í‚·‚Å‚É“o˜^‚³‚ê‚Ä‚¢‚Ü‚·B");
+                return;
             }
+           
+            cbUrl.Items.Add(new KeyValuePair<string, string>(name, url));
+            MessageBox.Show("‚¨‹C‚É“ü‚è‚É“o˜^‚µ‚Ü‚µ‚½B");
         }
 
         //‚¨‹C‚É“ü‚èíœ
