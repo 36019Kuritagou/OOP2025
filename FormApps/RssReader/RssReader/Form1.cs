@@ -52,15 +52,15 @@ namespace RssReader {
                 //リストボックスへタイトルを表示
                 lbTitles.Items.Clear();
                 items.ForEach(item => lbTitles.Items.Add(item.Title ?? "データなし"));
-               
+
             }
         }
 
-       
+
 
 
         private void lbTitles_Click(object sender, EventArgs e) {
-            
+
             if (lbTitles.SelectedIndex < 0 || lbTitles.SelectedIndex >= items.Count) return;
             string link = items[lbTitles.SelectedIndex].Link;
             if (!string.IsNullOrEmpty(link)) {
@@ -69,25 +69,23 @@ namespace RssReader {
         }
 
         //戻る
-        private void btReturn_Click(object sender, EventArgs e) {
-            if (wvRssLink.CanGoBack) {
+        private void btReturn_Click(object sender, EventArgs e) {            
                 wvRssLink.GoBack();
-                UpdateNavigationButtons();
-            }
+                           
         }
 
         //進む
-        private void btMove_Click(object sender, EventArgs e) {
-            if (wvRssLink.CanGoForward) {
+        private void btMove_Click(object sender, EventArgs e) {            
                 wvRssLink.GoForward();
-                UpdateNavigationButtons();
-            }
+                            
         }
 
-        private void UpdateNavigationButtons() {
+        private void wvRssLink_SourceChanged(object sender, Microsoft.Web.WebView2.Core.CoreWebView2SourceChangedEventArgs e) {
             btReturn.Enabled = wvRssLink.CanGoBack;
             btMove.Enabled = wvRssLink.CanGoForward;
         }
+
+        
 
         // お気に入り登録
         private void btRegistration_Click(object sender, EventArgs e) {
@@ -124,5 +122,7 @@ namespace RssReader {
         private void lbTitles_SelectedIndexChanged(object sender, EventArgs e) {
 
         }
+
+        
     }
 }
