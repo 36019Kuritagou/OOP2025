@@ -5,29 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HelloWorld
-{
-    class ViewModel : INotifyPropertyChanged
-    {
+namespace HelloWorld {
+    class ViewModel : BindableBase {
         public ViewModel() {
-            ChangeMessageCommand = new DelegateCommand(
-                () => GreetingMessage = "Bye-bye world");
+            ChangeMessageCommand = new DelegateCommand<string>(
+                (par) => GreetingMessage = par,
+                (par) => GreetingMessage != par)
+                .ObservesProperty(() => GreetingMessage);
         }
 
         private string _greetingMessage = "Hello World!";
-        public string GreetingMessage { 
-            get=>_greetingMessage;
-            set {
-                if(_greetingMessage != value) {
-                    _greetingMessage = value;
-                    PropertyChanged?.Invoke(
-                        this, new PropertyChangedEventArgs(nameof(GreetingMessage)));
-                }
-            }
+        public string GreetingMessage {
+            get => _greetingMessage;
+            set => SetProperty(ref _greetingMessage, value);
         }
 
-        public DelegateCommand ChangeMessageCommand { get; }
-
-        public event PropertyChangedEventHandler? PropertyChanged;
+        public string NewMessage1 { get; } = "Bye-bye world";
+        public string NewMessage2 { get; } = "Long time no see, world!";
+        public DelegateCommand<string> ChangeMessageCommand { get; }
     }
 }
