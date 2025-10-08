@@ -1,9 +1,6 @@
 ﻿using Prism.Commands;
-
 using Prism.Mvvm;
-
 using System;
-
 namespace PrismObservesSample {
 
     class MainWindowViewModel : BindableBase {
@@ -25,9 +22,7 @@ namespace PrismObservesSample {
             get => _result;
             set => SetProperty(ref _result, value);
         }
-
         
-
         public MainWindowViewModel() {
             SumCommand = new DelegateCommand(ExcuteSum, canExcuteSum);
         }
@@ -35,14 +30,14 @@ namespace PrismObservesSample {
         public DelegateCommand SumCommand { get; }
         // 足し算の処理
         private void ExcuteSum() {
-            
+            Result = (int.Parse(Input1) + int.Parse(Input2)).ToString();
         }
 
         //足し算処理を実行できるか否かのチェック
         private bool canExcuteSum() {
+            return (int.TryParse(Input1, out _) && int.TryParse(Input2, out _));
         }
 
     }
 
 }
-
