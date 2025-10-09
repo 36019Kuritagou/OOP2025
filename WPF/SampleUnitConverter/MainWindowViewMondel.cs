@@ -13,7 +13,7 @@ namespace SampleUnitConverter
 
         public ICommand ImperialUnitToMetric { get; private set; }
 
-        public ICommand MetricToImperialunit { get; private set; }
+        public ICommand MetricToImperialUnit { get; private set; }
 
         public MetricUnit CurrentMetricUnit { get; set; }
 
@@ -36,11 +36,13 @@ namespace SampleUnitConverter
         }
 
         public MainWindowViewMondel() {
+            CurrentMetricUnit = MetricUnit.Units.First();
+            CurrentImperialUnit = ImperialUnit.Units.First();
 
             ImperialUnitToMetric = new DelegateCommand(
                 ()=> MetricValue = CurrentMetricUnit.FromImperialUnit(CurrentImperialUnit, ImperialValue));
 
-            MetricToImperialunit = new DelegateCommand(
+            MetricToImperialUnit = new DelegateCommand(
                 () => ImperialValue = CurrentImperialUnit.FromMetricUnit(CurrentMetricUnit, MetricValue));
         }
     }
