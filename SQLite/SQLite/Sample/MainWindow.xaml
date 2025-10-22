@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="顧客管理" Width="400" SizeToContent="Height">
     <Grid>
-        <StackPanel Margin="10">
+        <StackPanel Margin="10" Background="Beige">
             <TextBlock Text="名前" FontWeight="Bold"/>
             <TextBox x:Name="NameTextBox"/>
 
@@ -16,11 +16,10 @@
             <Image x:Name="MyImage" Width="100" Height="100" Margin="5"/>
 
             <WrapPanel Margin="5">
-                <Button Content="画像" x:Name="PictureButton" Click="PictureButton_Click" Margin="8" Padding="12"/>
-                <Button Content="保存" x:Name="SaveButton" Click="SaveButton_Click" Margin="8" Padding="12"/>
-                <Button Content="更新" x:Name="UpdateButton" Click="UpdateButton_Click" Margin="8" Padding="12"/>
-                <Button Content="取得" x:Name="ReadButton" Click="ReadButton_Click" Margin="8" Padding="12"/>
-                <Button Content="削除" x:Name="DeleteButton" Click="DeleteButton_Click" Margin="8" Padding="12"/>
+                <Button Content="画像" x:Name="PictureButton" Click="PictureButton_Click" Margin="20,5,15,5" Padding="12" Background="Red" Foreground="Green"/>
+                <Button Content="保存" x:Name="SaveButton" Click="SaveButton_Click" Margin="20,5,15,5" Padding="12" Background="Blue" Foreground="Orange"/>
+                <Button Content="更新" x:Name="UpdateButton" Click="UpdateButton_Click" Margin="20,5,15,5" Padding="12" Background="Pink" Foreground="Blue"/>
+                <Button Content="削除" x:Name="DeleteButton" Click="DeleteButton_Click" Margin="20,5,15,5" Padding="12" Background="Green" Foreground="Red"/>
             </WrapPanel>
 
             <TextBlock Text="検索" FontWeight="Bold"/>
@@ -30,12 +29,12 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" Margin="5">
-                            <Image Source="{Binding PictureImage}" Width="100" Height="100" Margin="5"/>
+                            <Image Source="{Binding PictureImage}" Width="120" Height="120" Margin="10"/>
                             <StackPanel>
-                                <TextBlock Text="{Binding Id}"/>
-                                <TextBlock Text="{Binding Name}" FontSize="20"/>
+                                
+                                <TextBlock Text="{Binding Name}" FontSize="30"/>
                                 <TextBlock Text="{Binding Phone}" Foreground="Blue"/>
-                                <TextBlock Text="{Binding Address}" FontStyle="Italic"/>
+                                <TextBlock Text="{Binding Address}" />
                             </StackPanel>
                         </StackPanel>
                     </DataTemplate>
