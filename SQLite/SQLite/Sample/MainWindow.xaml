@@ -13,6 +13,13 @@
             <TextBlock Text="住所" FontWeight="Bold"/>
             <TextBox x:Name="addressTextBox"/>
 
+            <TextBlock Text="郵便番号" FontWeight="Bold"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="PostalCodeTextBox" Width="100" Margin="0,0,10,0"/>
+                <Button x:Name="PostalSearchButton" Content="住所検索" Click="PostalSearchButton_Click" Background="LightBlue" Padding="5,2"/>
+            </StackPanel>
+
+
             <Image x:Name="MyImage" Width="100" Height="100" Margin="5"/>
 
             <WrapPanel Margin="5">
@@ -24,6 +31,7 @@
 
             <TextBlock Text="検索" FontWeight="Bold"/>
             <TextBox x:Name="SearchTextBox" FontSize="16" TextChanged="SearchTextBox_TextChanged"/>
+            
 
             <ListView x:Name="PersonListView" Height="600" Margin="0,5,0,0" SelectionChanged="PersonListView_SelectionChanged">
                 <ListView.ItemTemplate>

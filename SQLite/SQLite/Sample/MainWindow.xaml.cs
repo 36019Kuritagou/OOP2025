@@ -1,12 +1,15 @@
 ﻿using Sample.Data;
 using SQLite;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Text.Json;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace Sample {
     public partial class MainWindow : Window {
@@ -101,8 +104,8 @@ namespace Sample {
 
                 MyImage.Source = bitmap;
             }
-        }
 
+        }
         private void PersonListView_SelectionChanged(object sender, SelectionChangedEventArgs e) {
             var selectedPerson = PersonListView.SelectedItem as Person;
             if (selectedPerson == null) return;
@@ -113,5 +116,46 @@ namespace Sample {
             MyImage.Source = selectedPerson.PictureImage;
             _selectedImageBytes = selectedPerson.Picture;
         }
+
+        private async void PostalSearchButton_Click(object sender, RoutedEventArgs e) {
+            string postalCode = PostalCodeTextBox.Text?.Trim().Replace("-", "");
+            if (string.IsNullOrEmpty(postalCode)) {
+                MessageBox.Show("郵便番号を入力してください。");
+                return;
+            }
+
+            try {
+                using var http = new HttpClient();
+                string url = $"https://jp-postal-code-api.ttskch.com/api/v1/{postalCode}.json";
+
+                HttpResponseMessage response = await http.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+
+                string json = await response.Content.ReadAsStringAsync();
+
+                using JsonDocument doc = JsonDocument.Parse(json);
+                JsonElement root = doc.RootElement;
+
+                if (root.TryGetProperty("addresses", out JsonElement addressesElem) && addressesElem.GetArrayLength() > 0) {
+                    var addr0 = addressesElem[0];
+                    string prefecture = addr0.GetProperty("ja").GetProperty("prefecture").GetString();
+                    string address1 = addr0.GetProperty("ja").GetProperty("address1").GetString();
+                    string address2 = addr0.GetProperty("ja").GetProperty("address2").GetString();
+                    string address3 = addr0.GetProperty("ja").GetProperty("address3").GetString();
+
+                    string fullAddress = $"{prefecture}{address1}{address2}{address3}";
+                    addressTextBox.Text = fullAddress;
+                } else {
+                    MessageBox.Show("住所が見つかりませんでした。");
+                }
+            }
+            catch (Exception ex) {
+                MessageBox.Show($"住所検索中にエラーが発生しました: {ex.Message}");
+            }
+        }
     }
 }
+
+
+
+        
