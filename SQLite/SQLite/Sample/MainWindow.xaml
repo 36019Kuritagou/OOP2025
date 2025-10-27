@@ -18,15 +18,13 @@
                 <TextBox x:Name="PostalCodeTextBox" Width="100" Margin="0,0,10,0"/>
                 <Button x:Name="PostalSearchButton" Content="住所検索" Click="PostalSearchButton_Click" Background="LightBlue" Padding="5,2"/>
             </StackPanel>
-
-
-            <Image x:Name="MyImage" Width="100" Height="100" Margin="5"/>
+            <Image x:Name="MyImage" Width="100" Height="100"/>
 
             <WrapPanel Margin="5">
-                <Button Content="画像" x:Name="PictureButton" Click="PictureButton_Click" Margin="20,5,15,5" Padding="12" Background="Red" Foreground="Green"/>
-                <Button Content="保存" x:Name="SaveButton" Click="SaveButton_Click" Margin="20,5,15,5" Padding="12" Background="Blue" Foreground="Orange"/>
-                <Button Content="更新" x:Name="UpdateButton" Click="UpdateButton_Click" Margin="20,5,15,5" Padding="12" Background="Pink" Foreground="Blue"/>
-                <Button Content="削除" x:Name="DeleteButton" Click="DeleteButton_Click" Margin="20,5,15,5" Padding="12" Background="Green" Foreground="Red"/>
+                <Button Content="画像" x:Name="PictureButton" Click="PictureButton_Click" Margin="20,5,15,5" Padding="12" Background="White" Foreground="Black"/>
+                <Button Content="保存" x:Name="SaveButton" Click="SaveButton_Click" Margin="20,5,15,5" Padding="12" Background="White" Foreground="Black"/>
+                <Button Content="更新" x:Name="UpdateButton" Click="UpdateButton_Click" Margin="20,5,15,5" Padding="12" Background="White" Foreground="Black"/>
+                <Button Content="削除" x:Name="DeleteButton" Click="DeleteButton_Click" Margin="20,5,15,5" Padding="12" Background="White" Foreground="Red"/>
             </WrapPanel>
 
             <TextBlock Text="検索" FontWeight="Bold"/>
