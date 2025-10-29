@@ -70,15 +70,44 @@ namespace Exercize01 {
             foreach (var category in categories2022) {
                 Console.WriteLine(category);
             }
-
         }
 
         private static void Exercise1_6() {
-            
-        }
+            var groupedBooks = Library.Books
+                .GroupBy(book => book.CategoryId)
+                .OrderBy(group => group.Key);
+
+            foreach (var group in groupedBooks) {
+                // カテゴリ名を取得
+                var categoryName = Library.Categories
+                    .First(c => c.Id == group.Key).Name;
+
+                Console.WriteLine(categoryName);
+
+                // タイトル順に並び替えて出力
+                foreach (var book in group.OrderBy(b => b.Title)) {
+                    Console.WriteLine(book.ToString());
+                }
+            }
+            }
 
         private static void Exercise1_7() {
-            
+            var developmentCategoryId = Library.Categories
+                .First(c => c.Name == "Development").Id;
+
+            // Developmentカテゴリの書籍を発行年ごとに分類
+            var groupedBooks = Library.Books
+                .Where(b => b.CategoryId == developmentCategoryId)
+                .GroupBy(b => b.PublishedYear)
+                .OrderBy(g => g.Key);
+
+            // 結果をコンソールに出力
+            foreach (var group in groupedBooks) {
+                Console.WriteLine(group.Key);
+                foreach (var book in group) {
+                    Console.WriteLine(book.Title);
+                }
+            }
         }
 
         private static void Exercise1_8() {
