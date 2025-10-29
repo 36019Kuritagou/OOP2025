@@ -59,7 +59,18 @@ namespace Exercize01 {
         }
 
         private static void Exercise1_5() {
+            var categoryIds2022 = Library.Books
+                .Where(book => book.PublishedYear == 2022)
+                .Select(book => book.CategoryId)
+                .Distinct();
             
+            var categories2022 = Library.Categories
+                .Where(category => categoryIds2022.Contains(category.Id));
+            
+            foreach (var category in categories2022) {
+                Console.WriteLine(category);
+            }
+
         }
 
         private static void Exercise1_6() {
