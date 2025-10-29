@@ -35,15 +35,15 @@ namespace Exercize01 {
 
         private static void Exercise1_3() {
             var bookCountByYear = Library.Books
-                .GroupBy(book => book.PublishedYear)
-                .OrderBy(group => group.Key)
-                .Select(group => new {
-                    Year = group.Key,
-                    Count = group.Count()
+                .GroupBy(b => b.PublishedYear)
+                .OrderBy(b => b.Key)
+                .Select(b => new {
+                    PublishdYear = b.Key,
+                    Count = b.Count()
                 });
             
             foreach (var item in bookCountByYear) {
-                Console.WriteLine($"発行年: {item.Year}, 冊数: {item.Count}");
+                Console.WriteLine($"発行年: {item.PublishdYear}, 冊数: {item.Count}");
             }
         }
 
@@ -53,7 +53,7 @@ namespace Exercize01 {
             .ThenByDescending(book => book.Price);
 
             foreach (var book in sortedBooks) {
-                Console.WriteLine(book);
+                Console.WriteLine($"{book.PublishedYear}年,{book.Price}円, {book.Title}");
             }
 
         }
