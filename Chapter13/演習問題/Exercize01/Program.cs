@@ -82,7 +82,7 @@ namespace Exercize01 {
                 var categoryName = Library.Categories
                     .First(c => c.Id == group.Key).Name;
 
-                Console.WriteLine(categoryName);
+                Console.WriteLine($"# { categoryName}");
 
                 // タイトル順に並び替えて出力
                 foreach (var book in group.OrderBy(b => b.Title)) {
@@ -103,7 +103,7 @@ namespace Exercize01 {
 
             // 結果をコンソールに出力
             foreach (var group in groupedBooks) {
-                Console.WriteLine(group.Key);
+                Console.WriteLine($"# {group.Key}");
                 foreach (var book in group) {
                     Console.WriteLine(book.Title);
                 }
@@ -111,7 +111,24 @@ namespace Exercize01 {
         }
 
         private static void Exercise1_8() {
-            
+            var result = Library.Categories
+            .GroupJoin(
+                Library.Books,
+                category => category.Id,
+                book => book.CategoryId,
+                (category, books) => new {
+                    CategoryName = category.Name,
+                    BookCount = books.Count()
+                }
+            )
+            .Where(x => x.BookCount >= 4)
+            .Select(x => x.CategoryName);
+
+            foreach (var name in result) {
+                Console.WriteLine(name);
+            }
         }
+
     }
 }
+
