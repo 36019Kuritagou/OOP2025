@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
+    <PackageReference Include="OpenAI" Version="2.7.0" />
     <PackageReference Include="Uno.UI" Version="5.6.99" />
   </ItemGroup>
 
